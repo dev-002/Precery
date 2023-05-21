@@ -11,7 +11,41 @@
 <body>
     <div class="container">
         Home
+        <hr>
+        <br><br>
+        <% if(fruit.length!==0) {%>
+            <h2>Fruit</h2>
+            <ul>
+                <% fruit.map((fruit)=>{%>
+                    <li>
+                        <h4>
+                            <%= fruit.name %>
+                        </h4>
+                        <p>
+                            <%= fruit.price %>
+                        </p>
+                    </li>
+                    <%}) %>
+            </ul>
+            <% } %>
+                <br><br>
+                <% if(vegetable.length!==0) {%>
+                    <h2>Vegetagbles</h2>
+                    <ul>
+                        <% vegetable.map((vegetable)=>{%>
+                            <li>
+                                <h4>
+                                    <%= vegetable.name %>
+                                </h4>
+                                <p>
+                                    <%= vegetable.price %>
+                                </p>
+                            </li>
+                            <%}) %>
+                    </ul>
+                    <% } %>
     </div>
+    <footer><button><a href="/login">Login</a></button></footer>
 </body>
 
 </html>
