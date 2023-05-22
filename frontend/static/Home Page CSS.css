@@ -166,6 +166,7 @@ background-color:#40aa54;}
     /* width: 500px; */
     margin-left: 70px;
     position: relative;
+    text-align: center;
 }
 .search-banner-text h1{
     font-size: 3rem;
