@@ -11,6 +11,8 @@ import Profile from "./components/icons/profile/profile";
 import WishlList from "./components/icons/wishlist/wishlist";
 import Cart from "./components/icons/cart/cart";
 
+import Payment from "./components/payment/Payment";
+
 function App() {
   return (
     <div className="App">
@@ -25,6 +27,8 @@ function App() {
         <Route exact path="profile" element={<Profile />}></Route>
         <Route exact path="wishlist" element={<WishlList />}></Route>
         <Route exact path="cart" element={<Cart />}></Route>
+
+        <Route exact path="cart/payment" element={<Payment />}></Route>
       </Routes>
     </div>
   );

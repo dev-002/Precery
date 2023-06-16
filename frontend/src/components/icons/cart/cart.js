@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function Cart() {
   if (window?.location.pathname === "/cart") require("./cart.css");
 
@@ -52,7 +54,7 @@ export default function Cart() {
             <span>You Save</span>
             <span>Rs. 177</span>
           </p>
-          <a href="Details For Checkout HTML.html">Proceed to Checkout</a>
+          <Link to="/cart/payment">Proceed to Checkout</Link>
         </div>
       </div>
     </div>
