@@ -1,3 +1,6 @@
+import React from "react";
+import { Link, Routes, Route } from "react-router-dom";
+
 export default function Navbar() {
   return (
     <nav className="navigation">
@@ -25,15 +28,22 @@ export default function Navbar() {
         </li>
 
         <li>
-          <a href="Contact Form HTML.html">Contact&nbsp;Us</a>
+          <Link to="/contact" target="_blank">
+            Contact
+          </Link>
+          {/* <a href="/src/components/contact/Contact">Contact&nbsp;Us</a> */}
         </li>
 
         <li>
-          <a href="Feedback Form HTML.html">Feedback</a>
+          <Link to="/feedback" target="_blank">
+            Feedback
+          </Link>
         </li>
 
         <li>
-          <a href="About Us HTML.html">About&nbsp;us</a>
+          <Link to="/about" target="_blank">
+            About&nbsp;us
+          </Link>
         </li>
 
         <li>
@@ -41,29 +51,33 @@ export default function Navbar() {
         </li>
 
         <li>
-          <a href="Login And Registration HTML.html">Sign&nbsp;up</a>
+          <Link to="/signin" target="_blank">
+            Sign&nbsp;up
+          </Link>
         </li>
 
         <li>
-          <a href="Login And Registration HTML.html">Login</a>
+          <Link to="/login" target="_blank">
+            Login
+          </Link>
         </li>
       </ul>
       <div className="right-nav">
-        <a href="Wishlist HTML.html" className="like">
+        <Link to="/wishlist" target="_blank" className="like">
           <i className="fas fa-heart"></i>
-
           <span>2</span>
-        </a>
-        <a href="Shopping Cart HTML.html" className="cart">
+        </Link>
+
+        <Link to="/cart" target="_blank" className="cart">
           <i className="fas fa-shopping-cart"></i>
-
           <span>2</span>
-        </a>
-        <a href="Profile HTML.html" className="user-profile">
-          <i className="fas fa-user"></i>
+        </Link>
 
+        <Link to="/profile" target="_blank" className="user-profile">
+          <i className="fas fa-user"></i>
           <span>1</span>
-        </a>
+        </Link>
+        {/* <a href="Profile HTML.html" className="user-profile"></a> */}
       </div>
     </nav>
   );
