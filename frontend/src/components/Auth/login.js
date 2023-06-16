@@ -1,4 +1,5 @@
 export default function Login() {
+  if (window?.location.pathname === "/login") require("./login.css");
   return (
     <>
       <section className="imp">
@@ -29,18 +30,30 @@ export default function Login() {
                 </ul>
                 <h3 style={{ cursor: "pointer" }}>or use your E-mail ID</h3>
               </div>
-              <form action="">
-                <input type="text" placeholder="EMAIL" required="" />
-                <input type="password" placeholder="PASSWORD" required="" />
+              <form action="http://localhost:5000/login/verify" method="post">
+                <input
+                  type="text"
+                  placeholder="EMAIL"
+                  required=""
+                  name="user[name]"
+                />
+                <input
+                  type="password"
+                  placeholder="PASSWORD"
+                  required=""
+                  name="user[password]"
+                />
                 <button id="b">
                   <a href="#" style={{ cursor: "pointer" }}>
                     Forgot password?
                   </a>
                 </button>
-                <button type="submit" className="sign_in_btn">
-                  <a href="Home Page HTML.html" style={{ color: "white" }}>
-                    SIGN IN
-                  </a>
+                <button
+                  type="submit"
+                  className="sign_in_btn"
+                  style={{ color: "white" }}
+                >
+                  SIGN IN
                 </button>
               </form>
             </div>
