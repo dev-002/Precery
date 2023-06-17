@@ -1,31 +1,38 @@
-function validate_form() {
-  var name = document.getElementById("name").value;
-  var phone = document.getElementById("phone").value;
-  var email = document.getElementById("email").value;
-  var pincode = document.getElementById("pincode").value;
-  var error_message = document.getElementById("error_message");
+document.querySelector(".card-number-input").oninput = () => {
+  document.querySelector(".card-number-box").innerText =
+    document.querySelector(".card-number-input").value;
+};
 
-  error_message.style.padding = "10px";
+document.querySelector(".card-holder-input").oninput = () => {
+  document.querySelector(".card-holder-name").innerText =
+    document.querySelector(".card-holder-input").value;
+};
 
-  var text;
-  if (name.length < 3) {
-    text = "Please Enter a valid Name";
-    error_message.innerHTML = text;
-    return false;
-  }
-  if (isNaN(phone) || phone.length != 10) {
-    text = "Please Enter a valid Phone Number";
-    error_message.innerHTML = text;
-    return false;
-  }
-  if (isNaN(pincode) || pincode.length != 10) {
-    text = "Please enter a valid Pincode";
-    error_message.innerHTML = text;
-    return false;
-  }
-  if (email.indexof("@") == -1 || email.length < 6) {
-    text = "Please enter a valid E-mail ID.";
-    error_message.innerHTML = text;
-    return false;
-  }
-}
+document.querySelector(".month-input").oninput = () => {
+  document.querySelector(".exp-month").innerText =
+    document.querySelector(".month-input").value;
+};
+
+document.querySelector(".year-input").oninput = () => {
+  document.querySelector(".exp-year").innerText =
+    document.querySelector(".year-input").value;
+};
+
+document.querySelector(".cvv-input").onmouseenter = () => {
+  document.querySelector(".front").style.transform =
+    "perspective(1000px) rotateY(-180deg)";
+  document.querySelector(".back").style.transform =
+    "perspective(1000px) rotateY(0deg)";
+};
+
+document.querySelector(".cvv-input").onmouseleave = () => {
+  document.querySelector(".front").style.transform =
+    "perspective(1000px) rotateY(0deg)";
+  document.querySelector(".back").style.transform =
+    "perspective(1000px) rotateY(180deg)";
+};
+
+document.querySelector(".cvv-input").oninput = () => {
+  document.querySelector(".cvv-box").innerText =
+    document.querySelector(".cvv-input").value;
+};

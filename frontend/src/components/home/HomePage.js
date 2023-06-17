@@ -20,6 +20,9 @@ function HomePage() {
       <Clients />
 
       <Footer />
+
+      <script src="./HomePageJS.js"></script>
+      {/* Used for the countdown */}
     </>
   );
 }

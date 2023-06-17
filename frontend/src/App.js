@@ -10,8 +10,10 @@ import Signin from "./components/Auth/signin";
 import Profile from "./components/icons/profile/profile";
 import WishlList from "./components/icons/wishlist/wishlist";
 import Cart from "./components/icons/cart/cart";
+import Checkout from "./components/icons/cart/Checkout";
 
 import Payment from "./components/payment/Payment";
+import PaymentConfirm from "./components/payment/PaymentConfirm";
 
 function App() {
   return (
@@ -27,8 +29,14 @@ function App() {
         <Route exact path="profile" element={<Profile />}></Route>
         <Route exact path="wishlist" element={<WishlList />}></Route>
         <Route exact path="cart" element={<Cart />}></Route>
+        <Route exact path="cart/checkout" element={<Checkout />}></Route>
 
-        <Route exact path="cart/payment" element={<Payment />}></Route>
+        <Route exact path="cart/checkout/payment" element={<Payment />}></Route>
+        <Route
+          exact
+          path="cart/checkout/payment/confirm"
+          element={<PaymentConfirm />}
+        ></Route>
       </Routes>
     </div>
   );

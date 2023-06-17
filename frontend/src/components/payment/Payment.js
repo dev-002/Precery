@@ -1,92 +1,114 @@
+import { Link } from "react-router-dom";
+
 export default function Payment() {
-  if (window?.location.pathname === "/cart/payment") require("./payment.css");
+  if (window?.location.pathname === "/cart/checkout/payment")
+    require("./payment.css");
 
   return (
     <>
-      <div className="contact-in">
-        <div className="contact-map">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d224345.83923192866!2d77.06889754725779!3d28.52758200617606!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfd5b347eb62d%3A0x52c2b7494e204dce!2sNew%20Delhi%2C%20Delhi!5e0!3m2!1sen!2sin!4v1642929688022!5m2!1sen!2sin"
-            width="100%"
-            height="auto"
-            style={{ border: 0 }}
-            allowFullScreen=""
-            loading="lazy"
-          />
+      <div className="container">
+        <div className="card-container">
+          <div className="front">
+            <div className="image">
+              <img src="https://i.imgur.com/iPjGMpM.png" alt="chip" />
+              <img src="https://i.imgur.com/HDMROff.png" alt="visa" />
+            </div>
+            <div className="card-number-box">################</div>
+            <div className="flexbox">
+              <div className="box">
+                <div className="card-holder-name">Name of card holder</div>
+              </div>
+              <div className="box">
+                <span>expiry</span>
+                <div className="expiration">
+                  <span className="exp-month">mm /</span>
+                  <span className="exp-year">yyyy</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="back">
+            <div className="stripe"> </div>
+            <div className="box">
+              <span>cvv</span>
+              <div className="cvv-box"> </div>
+              <img src="https://i.imgur.com/HDMROff.png" alt="Visa" />
+            </div>
+          </div>
         </div>
-        <div className="contact-form">
-          <h1 align="center">Details For Delivery</h1>
-          <div id="error_message" />
-          <form className="address_form" onsubmit="return validate_form();">
+        <form action="">
+          <div className="inputBox">
+            <span>card number</span>
             <input
               type="text"
-              placeholder="Name"
-              className="contact-form-txt"
-              id="name"
+              maxLength={16}
+              className="card-number-input"
               required=""
             />
-            <input
-              type="text"
-              placeholder="Address"
-              className="contact-form-txt"
-              id="address"
-              required=""
-            />
-            <input
-              type="text"
-              placeholder="Email-ID"
-              className="contact-form-txt"
-              id="email"
-              required=""
-            />
-            <input
-              type="text"
-              placeholder="Locality/Apartment"
-              className="contact-form-txt"
-              required=""
-            />
-            <input
-              type="text"
-              placeholder="Pincode"
-              className="contact-form-txt"
-              id="pincode"
-              required=""
-            />
-            <input
-              type="text"
-              placeholder="Contact No."
-              className="contact-form-txt"
-              id="phone"
-              required=""
-            />
-            <input
-              type="text"
-              placeholder="Date (Format: dd/mm/yyyy)"
-              className="contact-form-txt"
-              id="date"
-              required=""
-            />
-            <input
-              type="text"
-              placeholder="Time Slot (Format: Starting Time - Ending Time. Give a duration of 2 hours.)"
-              className="contact-form-txt"
-              id="time"
-              required=""
-            />
-            <button type="submit" className="contact-form-btn" id="submit">
-              <a
-                href="Payment HTML.html"
-                style={{
-                  cursor: "pointer",
-                  textDecoration: "none",
-                  color: "white",
-                }}
-              >
-                Submit
-              </a>
-            </button>
-          </form>
-        </div>
+          </div>
+          <div className="inputBox">
+            <span>name on card</span>
+            <input type="text" className="card-holder-input" required="" />
+          </div>
+          <div className="flexbox">
+            <div className="inputBox">
+              <span>expiry mm</span>
+              <select name="" id="" className="month-input" required="">
+                <option value="month" selected="" disabled="">
+                  month
+                </option>
+                <option value={"01"}>01</option>
+                <option value={"02"}>02</option>
+                <option value={"03"}>03</option>
+                <option value={"04"}>04</option>
+                <option value={"05"}>05</option>
+                <option value={"06"}>06</option>
+                <option value={"07"}>07</option>
+                <option value={"08"}>08</option>
+                <option value={"09"}>09</option>
+                <option value={"10"}>10</option>
+                <option value={"11"}>11</option>
+                <option value={"12"}>12</option>
+              </select>
+            </div>
+            <div className="inputBox">
+              <span>expiry yy</span>
+              <select name="" id="" className="year-input" required="">
+                <option value="year" selected="" disabled="">
+                  year
+                </option>
+                <option value={2022}>2022</option>
+                <option value={2023}>2023</option>
+                <option value={2024}>2024</option>
+                <option value={2025}>2025</option>
+                <option value={2026}>2026</option>
+                <option value={2027}>2027</option>
+                <option value={2028}>2028</option>
+                <option value={2029}>2029</option>
+                <option value={2030}>2030</option>
+                <option value={2031}>2031</option>
+              </select>
+            </div>
+            <div className="inputBox">
+              <span>cvv</span>
+              <input
+                type="text"
+                maxLength={4}
+                className="cvv-input"
+                required=""
+              />
+            </div>
+          </div>
+          <button type="button" className="submit-btn">
+            <Link
+              to="/cart/checkout/payment/confirm"
+              style={{ color: "white", textDecoration: "none" }}
+            >
+              Submit
+            </Link>
+          </button>
+        </form>
+
         <script src="./PaymentJS.js"></script>
       </div>
     </>

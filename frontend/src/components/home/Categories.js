@@ -13,14 +13,14 @@ export default function Categories() {
             Fruits & <br /> Vegetables
           </span>
         </a>
-        <a className="category-box" href="Medicine Category Page HTML.html">
+        {/* <a className="category-box" href="Medicine Category Page HTML.html">
           <img alt="Medicines" src="3.png" />
           <span>Medicine</span>
         </a>
         <a className="category-box" href="Baby Care Category Page HTML.html">
           <img alt="Baby Care Products" src="H.png" />
           <span>Baby Care</span>
-        </a>
+        </a> */}
         <a className="category-box" href="Office Category Page HTML.html">
           <img alt="Fish" src="png" />
           <span>Stationary</span>

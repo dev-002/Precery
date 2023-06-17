@@ -54,7 +54,7 @@ export default function Cart() {
             <span>You Save</span>
             <span>Rs. 177</span>
           </p>
-          <Link to="/cart/payment">Proceed to Checkout</Link>
+          <Link to="/cart/checkout">Proceed to Checkout</Link>
         </div>
       </div>
     </div>

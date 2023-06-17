@@ -7,6 +7,29 @@ export default function Clients() {
       <div className="client-box-container">
         <div className="client-box">
           <div className="client-profile">
+            <img alt="client" src="hb.jpg" />
+            <div className="profile-text">
+              <strong>Smriti Adhikari</strong>
+              <span>Software Developer</span>
+            </div>
+          </div>
+          <div className="rating">
+            <i className="fas fa-star"></i>
+            <i className="fas fa-star"></i>
+            <i className="fas fa-star"></i>
+            <i className="fas fa-star"></i>
+            <i className="fas fa-star"></i>
+          </div>
+          <p>
+            BIAS PRECERY is just amazing. I can buy all my groceries from a
+            single place. The groceries are available at very affordable prices.
+            And, the groceries are delivered at the time slot you choose and
+            prefer.
+          </p>
+        </div>
+
+        <div className="client-box">
+          <div className="client-profile">
             <img alt="client" src="sw.jpg" />
             <div className="profile-text">
               <strong>Swati Bisht</strong>
@@ -25,6 +48,7 @@ export default function Clients() {
             shopping has become so easy with BIAS PRECERY.
           </p>
         </div>
+
         <div className="client-box">
           <div className="client-profile">
             <img alt="client" src="hb.jpg" />
@@ -47,6 +71,7 @@ export default function Clients() {
             prefer.
           </p>
         </div>
+
         <div className="client-box">
           <div className="client-profile">
             <img alt="client" src="ab.jpg" />
