@@ -1,5 +1,9 @@
 export default function Login() {
-  if (window?.location.pathname === "/login") require("./login.css");
+  if (
+    window?.location.pathname === "/login" ||
+    window?.location.pathname === "/signin"
+  )
+    require("./LoginAndRegister.css");
   return (
     <>
       <section className="imp">
@@ -30,30 +34,18 @@ export default function Login() {
                 </ul>
                 <h3 style={{ cursor: "pointer" }}>or use your E-mail ID</h3>
               </div>
-              <form action="http://localhost:5000/login/verify" method="post">
-                <input
-                  type="text"
-                  placeholder="EMAIL"
-                  required=""
-                  name="user[name]"
-                />
-                <input
-                  type="password"
-                  placeholder="PASSWORD"
-                  required=""
-                  name="user[password]"
-                />
+              <form action="">
+                <input type="text" placeholder="EMAIL" required="" />
+                <input type="password" placeholder="PASSWORD" required="" />
                 <button id="b">
-                  <a href="#" style={{ cursor: "pointer" }}>
+                  <a href="google.com" style={{ cursor: "pointer" }}>
                     Forgot password?
                   </a>
                 </button>
-                <button
-                  type="submit"
-                  className="sign_in_btn"
-                  style={{ color: "white" }}
-                >
-                  SIGN IN
+                <button type="submit" className="sign_in_btn">
+                  <a href="Home Page HTML.html" style={{ color: "white" }}>
+                    SIGN IN
+                  </a>
                 </button>
               </form>
             </div>
@@ -139,7 +131,11 @@ export default function Login() {
         </section>
       </section>
 
-      <script src="Login And Registration JS.js"></script>
+      <script
+        src="https://kit.fontawesome.com/5471644867.js"
+        crossorigin="anonymous"
+      ></script>
+      <script src="./LoginAndRegisterJS.js"></script>
     </>
   );
 }

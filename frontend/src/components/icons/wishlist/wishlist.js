@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function WishlList() {
   if (window?.location.pathname === "/wishlist") require("./wishlist.css");
   return (
@@ -51,7 +53,7 @@ export default function WishlList() {
             <span>You Save</span>
             <span>Rs. 177</span>
           </p>
-          <a href="Details For Checkout HTML.html">Buy Now</a>
+          <Link to="/cart/checkout">Buy Now</Link>
         </div>
       </div>
     </div>

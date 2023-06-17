@@ -8,6 +8,8 @@ import PopularBundlePack from "./PopularBundlePack";
 import Clients from "./Clients";
 import Footer from "./Footer";
 
+import "./home.css";
+
 function HomePage() {
   return (
     <>

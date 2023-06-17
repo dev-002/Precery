@@ -1,4 +1,5 @@
 export default function ContactUs() {
+  if (window?.location.pathname === "/about") require("./aboutUs.css");
   return (
     <div className="section">
       <div className="container">

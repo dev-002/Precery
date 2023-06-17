@@ -1,8 +1,8 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Feedback() {
-  if (window?.location.pathname === "/feedback")
-    require("../../styles/feedback.css");
+  if (window?.location.pathname === "/feedback") require("./feedback.css");
 
   return (
     <div class="rating-css">
@@ -34,7 +34,7 @@ function Feedback() {
         <label for="rating5" class="fa fa-star"></label>
 
         <button type="submit" class="btn">
-          <a href="Feedback Form Confirm HTML and CSS.html">Submit</a>
+          <Link to="/feedback/confirm">Submit</Link>
         </button>
       </div>
     </div>

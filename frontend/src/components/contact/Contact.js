@@ -1,6 +1,7 @@
+import { Link } from "react-router-dom";
+
 export default function () {
-  if (window?.location.pathname === "/contact")
-    require("../../styles/contact.css");
+  if (window?.location.pathname === "/contact") require("./contact.css");
 
   return (
     <div>
@@ -27,12 +28,12 @@ export default function () {
             <textarea placeholder="Message" id="message" defaultValue={""} />
           </div>
           <button type="submit" className="btn">
-            <a
-              href="Contact Form Confirm HTML and CSS.html"
+            <Link
+              to="/contact/confirm"
               style={{ color: "white", textDecoration: "none" }}
             >
               Submit
-            </a>
+            </Link>
           </button>
         </form>
       </div>
