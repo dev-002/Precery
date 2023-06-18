@@ -6,12 +6,11 @@
 
   <title>
 
-    Shopping Cart
+    Cart
 
   </title>
 
-  <link rel="stylesheet" type="text/css" href="/styles/cart.css">
-
+  <link rel="stylesheet" type="text/css" href="/styles/wishlist.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" integrity="sha512-fD9DI5bZwQxOi7MhYWnnNPlvXdp/2Pj3XSTRrFs5FQa4mizyGLnJcN6tuvUS6LbmgN1ut+XGSABKvjN0H6Aoow==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 </head>
@@ -21,171 +20,88 @@
   <div class="container">
 
     <h1>
-
-      Shopping Cart
-
+      Cart
     </h1>
 
     <div class="cart">
-
       <div class="products">
-
+        <% products.forEach(product => { %>
         <div class="product">
-
-          <img src="https://i.imgur.com/oYbYgGQ.jpg">
-
+          <img src="<%= product.img %>">
           <div class="product-info">
-
             <h3 class="product-name">
-
-              Chakki Fresh Atta
-
+              <%= product.name %>
             </h3>
-
             <h4 class="product-price">
-
-              Rs. 350
-
+              Rs. <%= product.price %>
             </h4>
-
-            <h4 class="product-offer">
-
-              50%
-
-            </h4>
-
             <p class="product-quantity">
-
-              Qnt:
-
-              <input value="1" name="">
-
+              Qnt: 1
+              <!-- <input value="1" name="wishlist[<%= product.name %>]"> -->
             </p>
-
-            <p class="product-remove">
-
-              <i class="fas fa-trash-alt"></i>
-
-              <span class="remove">
-
-                Remove
-
-              </span>
-
-            </p>
-
+            <form action="/cart/remove/<%= product._id %>/<%= user.name %>" method="post">
+              <button type="submit">
+                <p class="product-remove">
+                  <i class="fas fa-trash-alt"></i>
+                  <span class="remove">
+                    Remove
+                  </span>
+                </p>
+              </button>
+            </form>
           </div>
-
         </div>
-
-        <div class="product">
-
-          <img src="https://i.imgur.com/mHmTIxp.jpg">
-
-          <div class="product-info">
-
-            <h3 class="product-name">
-
-              Maggie
-
-            </h3>
-
-            <h4 class="product-price">
-
-              Rs. 10
-
-            </h4>
-
-            <h4 class="product-offer">
-
-              20%
-
-            </h4>
-
-            <p class="product-quantity">
-
-              Qnt:
-
-              <input value="1" name="">
-
-            </p>
-            <p class="product-remove">
-
-              <i class="fas fa-trash-alt"></i>
-
-              <span class="remove">
-
-                Remove
-
-              </span>
-
-            </p>
-
-          </div>
-
-        </div>
-
+        <% }) %>
       </div>
+
 
       <div class="cart-total">
 
         <p>
-
           <span>
-
             Total Price
-
           </span>
 
           <span>
-
-            Rs. 183
-
+            Rs. <%= sum %>
           </span>
-
         </p>
+
         <p>
-
           <span>
-
             No. of Items
-
           </span>
 
           <span>
-
-            2
-
+            <%=products.length %>
           </span>
-
         </p>
 
         <p>
-
           <span>
-
             You Save
-
           </span>
-
           <span>
-
-            Rs. 177
-
+            Rs. 0
           </span>
-
         </p>
+
 
         <a href="/cart/checkout">
-
-          Proceed to Checkout
-
+          Buy Now
         </a>
-
       </div>
 
     </div>
 
+    <p class="product-remove" style="text-align: center; margin: auto;">
+      <a href="/" style="text-decoration: none; color: white; ::hover{ font: red;}">
+        <i class="fas fa-home"></i>
+        <span class="remove">
+          Home
+        </span>
+      </a>
+    </p>
   </div>
 
 </body>
