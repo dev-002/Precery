@@ -15,16 +15,16 @@ const { vegetable: vegeSeed, fruit: fruitSeed } = require("./utilities/seed");
 
 const app = express();
 
-const corsOption = {
-  // origin: "http://localhost:3000/",
-  origin: "*",
-  optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
-};
-app.use(cors(corsOption));
+// const corsOption = {
+//   // origin: "http://localhost:3000/",
+//   origin: "*",
+//   optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
+// };
+// app.use(cors(corsOption));
 
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "/views"));
-app.use(express.static("public"));
+app.use(express.static(path.join(__dirname, "public")));
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // Database
@@ -37,17 +37,21 @@ mongoose.connect(process.env.MONGODB_URL);
 
 // Routes
 const homeRouter = require("./routes/home");
-const loginRouter = require("./routes/login");
+const feedbackRouter = require("./routes/feedback");
+const aboutRouter = require("./routes/aboutUs");
+const contactRouter = require("./routes/contact");
+const authRouter = require("./routes/auth");
+const cartRouter = require("./routes/cart");
+const wishlistRouter = require("./routes/wishlist");
+const profileRouter = require("./routes/profile");
 
 app.use("/", homeRouter);
-app.use("/login", loginRouter);
-// Route to enter the fake data
-app.get("/seed", async (req, res) => {
-  const fruit = await Fruit.insertMany(fruitSeed);
-  // await fruit.save();
-  const vegetable = await Vegetable.insertMany(vegeSeed);
-  // await vegetable.save();
-  res.redirect("/");
-});
+app.use("/feedback", feedbackRouter);
+app.use("/contact", contactRouter);
+app.use("/about", aboutRouter);
+app.use("/auth", authRouter);
+app.use("/cart", cartRouter);
+app.use("/wishlist", wishlistRouter);
+app.use("/profile", profileRouter);
 
 app.listen(process.env.PORT, console.log("Server started..."));

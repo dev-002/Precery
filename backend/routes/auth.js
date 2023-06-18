@@ -3,8 +3,12 @@ const bcrypt = require("bcrypt");
 const User = require("../model/user");
 const router = express.Router();
 
-router.get("/", (req, res) => {
-  res.render("signForm");
+router.get("/register", (req, res) => {
+  res.render("LoginAndRegister/LoginAndRegister");
+});
+
+router.get("/login", (req, res) => {
+  res.render("LoginAndRegister/LoginAndRegister");
 });
 
 router.post("/create", async (req, res) => {
