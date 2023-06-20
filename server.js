@@ -6,6 +6,7 @@ const express = require("express");
 const path = require("path");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
+const cookieParser = require("cookie-parser");
 
 const app = express();
 
@@ -13,6 +14,7 @@ app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "/views"));
 app.use(express.static(path.join(__dirname, "public")));
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cookieParser());
 
 // Database
 mongoose.connect(process.env.MONGODB_URL);

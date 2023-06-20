@@ -6,11 +6,6 @@ const userSchema = new Schema({
     type: String,
     required: true,
   },
-  // birthDate: Date,
-  // gender: {
-  //     type: String,
-  //     enum: ["Male", "Female"]
-  // },
   email: {
     type: String,
     required: true,

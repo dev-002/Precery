@@ -1,6 +1,8 @@
 const express = require("express");
 const bcrypt = require("bcrypt");
 const User = require("../model/user");
+const { setUser, verifyUser } = require("../utilities/auth");
+
 const router = express.Router();
 
 router.get("/register", (req, res) => {
@@ -11,7 +13,7 @@ router.get("/login", (req, res) => {
   res.render("LoginAndRegister/LoginAndRegister");
 });
 
-router.post("/register", async (req, res) => {
+router.post("/register", setUser, async (req, res) => {
   const user = req.body.user;
   const hashedPass = await bcrypt.hash(user.password, 10);
   const newUser = new User({ ...user, password: hashedPass });
@@ -19,10 +21,10 @@ router.post("/register", async (req, res) => {
   res.send(user);
 });
 
-router.post("/login", async (req, res) => {
+router.post("/login", setUser, async (req, res) => {
   const user = await User.findOne({ email: req.body.user.email });
   if (user && bcrypt.compare(req.body.user.password, user.password)) {
-    res.send(user);
+    res.send(req.cookies);
   } else {
     res.redirect("/auth/login");
   }
