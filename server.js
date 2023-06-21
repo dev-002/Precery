@@ -34,15 +34,16 @@ const cartRouter = require("./routes/cart");
 const wishlistRouter = require("./routes/wishlist");
 const profileRouter = require("./routes/profile");
 const categoriesRouter = require("./routes/categories");
+const { verifyUser, checkTokenExpiration } = require("./utilities/auth");
 
 app.use("/", homeRouter);
-app.use("/feedback", feedbackRouter);
-app.use("/contact", contactRouter);
 app.use("/about", aboutRouter);
 app.use("/auth", authRouter);
-app.use("/cart", cartRouter);
-app.use("/wishlist", wishlistRouter);
-app.use("/profile", profileRouter);
+app.use("/feedback", checkTokenExpiration, verifyUser, feedbackRouter);
+app.use("/contact", checkTokenExpiration, verifyUser, contactRouter);
+app.use("/cart", checkTokenExpiration, verifyUser, cartRouter);
+app.use("/wishlist", checkTokenExpiration, verifyUser, wishlistRouter);
+app.use("/profile", checkTokenExpiration, verifyUser, profileRouter);
 app.use("/categories", categoriesRouter);
 
 app.get("/deals", (req, res) => {

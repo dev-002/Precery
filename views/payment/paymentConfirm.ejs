@@ -61,7 +61,9 @@
     <div>
       <h1 style="text-transform: uppercase;">Success!</h1><br>
       <h5>The payment has been made and the order has been successfully placed. <br> Happy Shopping!</h5>
-      <button type="button" class="btn"><a href="/" style='color: white; text-decoration: none;'>Home</a></button>
+      <form action="/cart/checkout/payment/confirm/redirect" method="post">
+        <button type="submit" class="btn" style='color: white; text-decoration: none;'>Home</button>
+      </form>
     </div>
   </div>
 </body>

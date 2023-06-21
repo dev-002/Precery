@@ -18,13 +18,13 @@ router.post("/register", setUser, async (req, res) => {
   const hashedPass = await bcrypt.hash(user.password, 10);
   const newUser = new User({ ...user, password: hashedPass });
   await newUser.save();
-  res.send(user);
+  res.redirect("/");
 });
 
 router.post("/login", setUser, async (req, res) => {
   const user = await User.findOne({ email: req.body.user.email });
   if (user && bcrypt.compare(req.body.user.password, user.password)) {
-    res.send(req.cookies);
+    res.redirect("/");
   } else {
     res.redirect("/auth/login");
   }

@@ -2,22 +2,36 @@ const express = require("express");
 const Item = require("../model/item");
 const User = require("../model/user");
 const url = require("url");
+const { tokenSplit } = require("../utilities/auth");
 
 const router = express.Router();
 
 router.get("/", async (req, res) => {
   const products = await Item.find({ category: "Fruit" });
   const bundle = await Item.find({ category: "Bundle" });
-  const user = await User.findOne({ name: "Devansh" });
-  let cartItem = user.cart.length;
-  let wishlistItem = user.wishlist.length;
-  res.render("home/home", {
-    products,
-    bundle,
-    user: { name: "Devansh" },
-    wishlistItem,
-    cartItem,
-  });
+  if (req.cookies.Authorization) {
+    const data = await tokenSplit(req.cookies.Authorization);
+    const user = await User.findOne({ _id: data._id });
+    if (user) {
+      let cartItem = user.cart.length;
+      let wishlistItem = user.wishlist.length;
+      res.render("home/home", {
+        products,
+        bundle,
+        user: { name: "Devansh" },
+        wishlistItem,
+        cartItem,
+      });
+    } else {
+      res.json({
+        data,
+        user,
+        error: "User is not found",
+      });
+    }
+  } else {
+    res.render("home/home", { products, bundle, wishlistItem: 0, cartItem: 0 });
+  }
 });
 
 router.get("/search", async (req, res) => {

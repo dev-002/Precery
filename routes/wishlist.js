@@ -35,11 +35,11 @@ router.get("/", async (req, res) => {
   res.render("wishlist/wishlist", { products, user: { name: "Devansh" }, sum });
 });
 
-router.post("/add/:_id/:name", addProduct, async (req, res) => {
+router.post("/add/:_id", addProduct, async (req, res) => {
   res.redirect("/");
 });
 
-router.post("/remove/:_id/:name", removeProduct, async (req, res) => {
+router.post("/remove/:_id", removeProduct, async (req, res) => {
   res.redirect("/wishlist");
 });
 

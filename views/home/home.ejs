@@ -93,12 +93,15 @@
           <%= cartItem %>
         </span>
       </a>
+      <% if(typeof user !== 'undefined'){ %>
       <a href="/profile" class="user-profile">
         <i class="fas fa-user"></i>
-        <!-- <span>
-          1
-        </span> -->
       </a>
+
+      <a href="/profile/logout" class="user-profile">
+        <i class="fas fa-sign-out"></i>
+      </a>
+      <% }%>
     </div>
   </nav>
 
@@ -187,13 +190,13 @@
         <strong><%= product.name %></strong>
         <span class="quantity"><%= product.quantity %> KG</span>
         <span class="price">Rs. <%= product.price %></span>
-        <form action="/cart/add/<%= product._id %>/<%= user.name %>" method="post">
+        <form action="/cart/add/<%= product._id %>" method="post">
           <button type="submit" class="cart-btn">
             <i class="fas fa-shopping-bag"></i> Add to Cart
           </button>
         </form>
 
-        <form action="/wishlist/add/<%= product._id %>/<%= user.name %>" method="post">
+        <form action="/wishlist/add/<%= product._id %>" method="post">
           <button type="submit">
             <a class="like-btn">
               <i class="far fa-heart"></i>
@@ -218,12 +221,12 @@
         <span class="quantity"><%= product.quantity %> KG</span>
         <span class="price">Rs. <%= product.price %></span>
 
-        <form action="/cart/add/<%= product._id %>/<%= user.name %>" method="post">
+        <form action="/cart/add/<%= product._id %>" method="post">
           <button type="submit" class="cart-btn">
             <i class="fas fa-shopping-bag"></i> Add to Cart
           </button>
         </form>
-        <form action="/wishlist/add/<%= product._id %>/<%= user.name %>" method="post">
+        <form action="/wishlist/add/<%= product._id %>" method="post">
           <button type="submit">
             <a class="like-btn">
               <i class="far fa-heart"></i>

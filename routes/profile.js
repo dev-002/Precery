@@ -6,4 +6,9 @@ router.get("/", (req, res) => {
   res.render("profile/profile");
 });
 
+router.get("/logout", (req, res) => {
+  res.clearCookie("Authorization");
+  res.redirect("/");
+});
+
 module.exports = router;
